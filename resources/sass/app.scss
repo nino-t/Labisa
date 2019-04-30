@@ -1,0 +1,21 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Components
+@import '_components/_base';
+@import '_components/_navbar';
+@import '_components/_container';
+@import '_components/_background';
+@import '_components/_bread_cover';
+@import '_components/_banners';
+@import '_components/_section';
+@import '_components/_footer';
+@import '_components/_search';
+@import '_components/_button';

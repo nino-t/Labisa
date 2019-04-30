@@ -1,0 +1,78 @@
+.bread_cover {
+  width: 100%;
+  height: 500px;
+  background-image: url("https://assets.kitabisa.com/images/image__main-banner.jpg");
+  position: relative;
+
+  > ._body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
+
+    > .__title__ {
+      font-size: 32px;
+      font-weight: bold;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 30px;
+      margin-top: -40px;
+      width: 70%;
+    }
+
+    > .__action__ {
+      width: 100%;
+
+      .col-6 {
+        .btn {
+          width: 100%;
+
+          .fab {
+            color: #ffffff;
+          }
+        }
+
+        &:nth-child(1) {
+          padding-right: 7px;
+        }
+
+        &:nth-child(2) {
+          padding-left: 7px;
+          
+          i {
+            font-size: 30px;
+            position: absolute;
+            left: 13%;
+          }
+        }
+      }
+    }
+  }
+
+  > ._footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,.43);
+    padding: 20px 0px;
+
+    h3, p {
+      color: #ffffff;
+      padding: 0;
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 17px;
+    }
+  }
+}

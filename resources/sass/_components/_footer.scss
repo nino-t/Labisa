@@ -1,0 +1,29 @@
+footer {
+  h4 {
+    color: #00aeef;
+    font-size: 20px;
+    margin: 8px 0 15px;
+    font-weight: 600;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin-bottom: .5em;
+    }
+  }
+
+  .__menu {
+    margin-bottom: 20px;
+  }
+
+  .__copyright {
+    color: #333;
+    padding-top: 1.5em;
+    margin-top: 1.5em;
+    border-top: 1px solid #ccd0d3;
+  }
+}

@@ -1,0 +1,32 @@
+.btn {
+  border: none;
+  font-weight: bold;
+
+  i {
+    color: #ffffff;
+  }
+}
+
+.btn-danger {
+  background: #da336b;
+
+  &:hover {
+    background: #b92154;
+  }
+}
+
+.btn-success {
+  background: #6ad248;
+
+  &:hover {
+    background: #50b92e;
+  }
+}
+
+.btn-primary {
+  background-color: #00aeef;
+
+  &:hover {
+    background: #0089bc;
+  }
+}
