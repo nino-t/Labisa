@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="_footer">
-        <div class="container-fluid">
+        <div class="container">
           <div class="row">
             <div class="col-sm">
               <h3>22.510</h3>
@@ -35,7 +35,7 @@
     </div>
 
     <section class="_sub_banners _background_silver py-5">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-3 __text__">
             <h3>Website  Galang Dana #1 di Indonesia</h3>
@@ -58,7 +58,7 @@
       </div>
     </section>
 
-    <section class="_background_white">
+    <section class="_background_white _section_list_campaign">
       <div class="container-fluid">
         <div class="_section_heading">
           <h3>Siap memberi bantuan?</h3>
@@ -67,49 +67,44 @@
         <div class="_section_body">
           <div class="container">
             <div class="row">
-              <div class="col-4 __item mb-4">
-                <div class="card">
+              @for ($i = 0; $i < 9; $i++)
+                <div class="col-4 __item mb-4">
+                  <div class="card">
                     <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
-                    <h4>Bantu Susi Melawan Kanker Payudara Stadium IV</h4>
-                </div>
-              </div>
+                    <div class="card-body">
+                      <h4>Bantu Susi Melawan Kanker Payudara Stadium IV</h4>
+                      <div class="__description__">
+                        <div class="__username__">
+                          <p>Yayasan Tunas Sehat Indonesia</p>
+                          <img src="https://assets.kitabisa.com/images/icon__verified-org.svg" alt="img-official" height="20" />
+                        </div>
+                        <div class="__progress__">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                        <div class="__money__">
+                          <div class="_to">
+                            <small>Terkumpul</small>
+                            <p>Rp 80.658.039</p>
+                          </div>
+                          <div class="_from">
+                            <small>Sisa hari</small>
+                            <p>220</p>  
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+              @endfor
+            </div>
 
-              <div class="col-4 __item mb-4">
-                <div class="card">
-                    <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
-                    <h4>Bantu Susi Melawan Kanker Payudara Stadium IV</h4>
-                </div>
+            <div class="row justify-content-center">
+              <div class="col-md-4" style="padding-top: 10px; padding-bottom: 30px;">
+                <a href="javascript:void(0)" class="btn btn-primary btn-lg" style="width:100%;">Lihat Semua</a>
               </div>
-
-              <div class="col-4 __item mb-4">
-                <div class="card">
-                  <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
-                  <h4>Bantu Susi Melawan Kanker Payudara Stadium IV</h4>
-                </div>
-              </div>
-
-              <div class="col-4 __item mb-4">
-                <div class="card">
-                  <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
-                  <h4>Bantu Susi Melawan Kanker Payudara Stadium IV</h4>
-                </div>
-              </div>  
-
-              <div class="col-4 __item mb-4">
-                <div class="card">
-                    <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
-                    <h4>Bantu Susi Melawan Kanker Payudara Stadium IV</h4>
-                </div>
-              </div>
-
-              <div class="col-4 __item mb-4">
-                <div class="card">
-                    <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
-                    <h4>Bantu Susi Melawan Kanker Payudara Stadium IV</h4>
-                </div>
-              </div>
-            </div>    
-            <a href="javascript:void(0)" class="btn btn-primary">Lihat Semua</a>
+            </div>
           </div>
         </div>
       </div>

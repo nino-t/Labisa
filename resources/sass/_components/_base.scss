@@ -1,3 +1,17 @@
 * {
   color: #4d4d4d;
 }
+
+a {
+  text-decoration: none;
+  color: #00aeef;
+
+  &:hover {
+    color: #006489;
+    text-decoration: none;
+  }
+}
+
+.img-responsive {
+  width: 100%;
+}

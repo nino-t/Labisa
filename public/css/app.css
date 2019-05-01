@@ -10666,16 +10666,23 @@ a.text-dark:focus {
   color: #4d4d4d;
 }
 
+a {
+  text-decoration: none;
+  color: #00aeef;
+}
+
+a:hover {
+  color: #006489;
+  text-decoration: none;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
 ._navbar {
-  padding: 20px 0px;
-}
-
-.container-fluid {
-  width: 90%;
-}
-
-.container {
-  width: 80%;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 ._background_silver {
@@ -10828,6 +10835,54 @@ section {
   width: 100%;
 }
 
+._section_list_campaign ._section_body .__item {
+  height: 400px;
+}
+
+._section_list_campaign ._section_body .__item .card {
+  height: 100%;
+}
+
+._section_list_campaign ._section_body .__item .card > .card-body {
+  position: relative;
+}
+
+._section_list_campaign ._section_body .__item .card > .card-body > h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+._section_list_campaign ._section_body .__item .card > .card-body > .__description__ {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+._section_list_campaign ._section_body .__item .card > .card-body > .__description__ > .__username__ {
+  display: flex;
+  flex-direction: row;
+}
+
+._section_list_campaign ._section_body .__item .card > .card-body > .__description__ > .__username__ img {
+  position: relative;
+  top: 5px;
+  left: 3px;
+}
+
+._section_list_campaign ._section_body .__item .card > .card-body > .__description__ > .__progress__ > .progress {
+  height: 3px;
+}
+
+._section_list_campaign ._section_body .__item .card > .card-body > .__description__ > .__money__ {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 footer h4 {
   color: #00aeef;
   font-size: 20px;
@@ -10854,11 +10909,6 @@ footer .__copyright {
   padding-top: 1.5em;
   margin-top: 1.5em;
   border-top: 1px solid #ccd0d3;
-}
-
-.navbar-brand {
-  border-right: 1px solid rgba(0, 0, 0, 0.9);
-  padding-right: 15px;
 }
 
 ._search input {
@@ -10902,5 +10952,24 @@ footer .__copyright {
 
 .btn-primary:hover {
   background: #0089bc;
+}
+
+._auth_card {
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border: none;
+}
+
+._auth_card > .card-body {
+  padding-right: 35px;
+  padding-left: 35px;
+}
+
+._auth_card .__title__ {
+  font-size: 22px;
+  font-weight: 300 !important;
+  color: #333 !important;
+  margin: 22px 0px;
 }
 
