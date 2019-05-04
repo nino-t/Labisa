@@ -10685,6 +10685,44 @@ a:hover {
   padding-bottom: 16px;
 }
 
+._navbar.navbar-blue {
+  background: #00aeef;
+  color: #ffffff;
+}
+
+._navbar.navbar-blue .nav-link,
+._navbar.navbar-blue input {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::-moz-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue :-ms-input-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue :-ms-input-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::-ms-input-placeholder {
+  color: orange;
+}
+
 ._background_silver {
   background: #f2f3f4;
 }
@@ -10881,6 +10919,7 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 footer h4 {

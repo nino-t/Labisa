@@ -13,6 +13,7 @@
 
 Route::get('/', 'FrontController@index')->name('beranda');
 Route::get('/home', 'FrontController@index')->name('home');
+Route::get('/explore/{category_id}', 'FrontController@eventList')->name('event.browse');
 
 Auth::routes();
 Route::resource('/galangan', 'EventController');

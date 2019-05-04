@@ -9,5 +9,10 @@ class FrontController extends Controller
 	public function index () {
 		$sub_title = 'Indonesia Fundraising Platform';
 		return view('pages.home.index', compact('sub_title'));
-	}
+  }
+  
+  public function eventList () {
+		$sub_title = 'Indonesia Fundraising Platform';
+		return view('pages.event.browse.index', compact('sub_title'));
+  }
 }
