@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
+	const INC_DIR = 'pages.event._include.';
+	
 	public function index () {
     $limit_event = 9;
     $top_events = Event::orderBy('created_at', 'DESC')->limit(6)->get();
@@ -35,4 +37,18 @@ class FrontController extends Controller
   public function eventView (Request $request) {
     $event = Event::where('slug', $request->event_slug)->first();
   }
+
+  public function donation_store () {
+	$data = $request->all();
+	$data['user_id'] = Auth::user()->id;
+	$data['event_id'] = Event::where('slug', $request->event_slug)->first()->id;
+	$event = Event::create($data);
+	return redirect()->route('event.index')->with('success', 'Donate is success');
+  }
+
+  public function donation () {
+	$INC_DIR = self::INC_DIR;
+	$sub_title = 'Donasi';
+	return view('pages.donation.index', compact('sub_title', 'INC_DIR'));
+}
 }
