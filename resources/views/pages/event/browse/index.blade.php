@@ -41,15 +41,15 @@
       <div class="container">
         <p>menampilkan 3.845 campaign dari Semua Campaigner</p>
         <div class="row _section_body">
-          @for ($i = 0; $i < 9; $i++)
+            @forelse ($events as $event)
             <div class="col-4 __item mb-4">
               <div class="card">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
+                <img src="{{ $event->thumbnail_url }}" class="img-responsive" alt="" />
                 <div class="card-body">
-                  <h4>Bantu Susi Melawan Kanker Payudara Stadium IV</h4>
+                  <h4>{{ $event->name }}</h4>
                   <div class="__description__">
                     <div class="__username__">
-                      <p>Yayasan Tunas Sehat Indonesia</p>
+                      <p>{{ $event->userId->name }}</p>
                       <img src="https://assets.kitabisa.com/images/icon__verified-org.svg" alt="img-official" height="20" />
                     </div>
                     <div class="__progress__">
@@ -71,7 +71,9 @@
                 </div>
               </div>
             </div>  
-          @endfor
+          @empty
+              <h4>No data</h4>
+          @endforelse
         </div>
       </div> 
     </section>

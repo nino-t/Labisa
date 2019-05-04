@@ -16,8 +16,7 @@ Route::get('/home', 'FrontController@index')->name('home');
 Route::get('/explore/{category_id}', 'FrontController@eventList')->name('event.browse');
 
 Auth::routes();
-Route::resource('/galangan', 'EventController');
-
+Route::resource('/event', 'EventController');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
