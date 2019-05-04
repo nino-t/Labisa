@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Event;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreEventRequest;
 
 class EventController extends Controller
 {
+    const INC_DIR = 'pages.event._include.';
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,7 +23,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+      $INC_DIR = self::INC_DIR;
+			$sub_title = 'Galang Dana Sekarang';
+			$events = Event::orderBy('created_at', 'desc')->paginate(6);
+      return view('pages.event.browse.index', compact('sub_title', 'INC_DIR', 'events'));			
     }
 
     /**
@@ -29,8 +36,9 @@ class EventController extends Controller
      */
     public function create()
     {
+      $INC_DIR = self::INC_DIR;
       $sub_title = 'Galang Dana Sekarang';
-      return view('pages.event.create.index', compact('sub_title'));
+      return view('pages.event.create.index', compact('sub_title', 'INC_DIR'));
     }
 
     /**
@@ -39,9 +47,17 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEventRequest $request)
     {
-        //
+			$data = $request->all();
+			$data['user_id'] = Auth::user()->id;
+			$file = $request->file('thumbnail');
+			$name = 'panji-tamzan.' . $file->getClientOriginalExtension();
+			$path = $file->storeAs('/public/uploads/event', $name);
+
+			$data['thumbnail_url'] = url('/').'/'.str_replace("public", "storage", $path);
+			$event = Event::create($data);
+			return redirect()->route('event.index')->with('success', 'Event is successfully saved');
     }
 
     /**
@@ -52,7 +68,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+      return $event->name;
     }
 
     /**
@@ -63,7 +79,10 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+      $INC_DIR = self::INC_DIR;
+      $sub_title = 'Galang Dana Sekarang';
+      $model = $event;
+      return view('pages.event.edit.index', compact('sub_title', 'INC_DIR', 'model'));
     }
 
     /**
@@ -75,7 +94,15 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+      $data = $request->all();
+			$data['user_id'] = Auth::user()->id;
+			$file = $request->file('thumbnail');
+			$name = 'panji-tamzan.' . $file->getClientOriginalExtension();
+			$path = $file->storeAs('/public/uploads/event', $name);
+
+			$data['thumbnail_url'] = url('/').'/'.str_replace("public", "storage", $path);
+			$event->update($data);
+			return redirect()->route('event.index')->with('success', 'Event is successfully saved');
     }
 
     /**
@@ -86,6 +113,7 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+      $event->delete();
+      return redirect('/event');
     }
 }

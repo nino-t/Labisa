@@ -15,8 +15,7 @@ Route::get('/', 'FrontController@index')->name('beranda');
 Route::get('/home', 'FrontController@index')->name('home');
 
 Auth::routes();
-Route::resource('/galangan', 'EventController');
-
+Route::resource('/event', 'EventController');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
