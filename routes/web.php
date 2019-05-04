@@ -14,6 +14,7 @@
 Route::get('/', 'FrontController@index')->name('beranda');
 Route::get('/home', 'FrontController@index')->name('home');
 Route::get('/explore/{category_id}', 'FrontController@eventList')->name('event.browse');
+Route::get('/view-event/{event_slug}', 'FrontController@eventView')->name('event.view');
 
 Auth::routes();
 Route::resource('/event', 'EventController');

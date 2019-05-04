@@ -39,12 +39,32 @@
 
     <section class="_section_list_campaign">
       <div class="container">
-        <p>menampilkan 3.845 campaign dari Semua Campaigner</p>
+        <p>Menampilkan {{ $total_event }} campaign dari {{ $category_event }}</p>
         <div class="row _section_body">
-            @forelse ($events as $event)
+          @forelse ($events as $event)
+            @php
+              $total_dibutuhkan = intval($event->target_amount);
+              $nominal_terkumpul = intval(App\LogDonation::where('event_id', $event->id)->sum('amount'));
+              $persentase = ($nominal_terkumpul/$total_dibutuhkan)*100 . '%';
+            @endphp
+
             <div class="col-4 __item mb-4">
               <div class="card">
-                <img src="{{ $event->thumbnail_url }}" class="img-responsive" alt="" />
+                @if (empty($event->thumbnail_url))
+                  <img src="{{ asset('img/not-found.png') }}" class="img-responsive" alt="img-event" />
+                @else
+                  @php
+                    $_path_filename = '';
+                    if (empty(strpos($event->thumbnail_url, 'http'))) {
+                      $_path_filename = url('/storage') .'/'. $event->thumbnail_url;
+                    } else {
+                      $_path_filename = $event->thumbnail_url;
+                    }
+                  @endphp
+
+                  <img src="{{ $_path_filename }}" class="img-responsive" alt="img-event" />
+                @endif
+
                 <div class="card-body">
                   <h4>{{ $event->name }}</h4>
                   <div class="__description__">
@@ -54,17 +74,24 @@
                     </div>
                     <div class="__progress__">
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar" role="progressbar" style="width: {{ $persentase }}" aria-valuenow="{{ $nominal_terkumpul }}" aria-valuemin="0" aria-valuemax="{{ $total_dibutuhkan }}"></div>
                       </div>
                     </div>
                     <div class="__money__">
                       <div class="_to">
                         <small>Terkumpul</small>
-                        <p>Rp 80.658.039</p>
+                        <p>Rp {{ number_format($nominal_terkumpul, 0, ',', '.') }}</p>
                       </div>
-                      <div class="_from">
+                      <div class="_from text-right">
                         <small>Sisa hari</small>
-                        <p>220</p>  
+                        @php
+                          $created = new \Carbon\Carbon($event->expired_date); 
+                          $now = \Carbon\Carbon::now();
+                          $difference = ($created->diff($now)->days < 1)
+                              ? '0'
+                              : $created->diffInDays($now);
+                        @endphp
+                        <p>{{ $difference }}</p>
                       </div>
                     </div>
                   </div>
@@ -72,9 +99,14 @@
               </div>
             </div>  
           @empty
-              <h4>No data</h4>
+            <h4 class="text-center" style="width:100%;">Campaign tidak ditemukan</h4>
           @endforelse
         </div>
+
+        <div style="float:right;">
+          {!! $events->links() !!}
+        </div>
+        <div class="clearfix"></div>
       </div> 
     </section>
   @endsection

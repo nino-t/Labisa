@@ -8,8 +8,14 @@
       @endif
     </a>
 
-    <form class="form-inline _search">
-      <input class="form-control" type="search" placeholder="Cari judul, nama, atau isi campaign" aria-label="Search" />
+    <form action="{{ url('/explore/all') }}" method="GET" class="form-inline _search">
+      @php
+        $keyword = '';
+        if (isset($_GET['q'])) {
+          $keyword = $_GET['q'];
+        }
+      @endphp
+      <input class="form-control" type="search" name="q" id="q" placeholder="Cari judul, nama, atau isi campaign" aria-label="Search" value="{{ $keyword }}" />
     </form>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

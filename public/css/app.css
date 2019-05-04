@@ -10885,6 +10885,7 @@ section {
   position: relative;
 }
 
+._section_list_campaign ._section_body .__item .card > .card-body > a > h4,
 ._section_list_campaign ._section_body .__item .card > .card-body > h4 {
   margin: 0;
   padding: 0;
