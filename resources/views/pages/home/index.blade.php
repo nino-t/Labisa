@@ -1,6 +1,10 @@
 @extends('layouts.master.app')
   @section('sub_title', $sub_title)
 
+  @push('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" />
+  @endpush
+
   @section('content')
     <div class="bread_cover" id="first-banner">
       <div class="_body">
@@ -34,7 +38,7 @@
       </div>
     </div>
 
-    <section class="_sub_banners _background_silver py-5">
+    <section class="_sub_banners _background_silver py-5" style="padding-bottom: 30px !important;">
       <div class="container">
         <div class="row">
           <div class="col-3 __text__">
@@ -43,16 +47,31 @@
             <a href="javascript:void(0)" class="btn btn-primary btn-lg">Mulai Galang Dana</a>
           </div>
           <div class="col-9 __content__">
-            <div class="row">
-              <div class="col-6 __item">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
-                <p>Orangtua Al Fattieh berhasil menggalang Rp 61 juta dari 222 #OrangBaik untuk biaya pengobatan bayi Al Fattieh.</p>
+            <div class="swiper-container" id="slide-top">
+              <div class="swiper-wrapper" style="margin-bottom: 50px;"> 
+                <div class="swiper-slide __item">
+                  <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
+                  <p>Orangtua Al Fattieh berhasil menggalang Rp 61 juta dari 222 #OrangBaik untuk biaya pengobatan bayi Al Fattieh.</p>    
+                </div>
+
+                <div class="swiper-slide __item">
+                  <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
+                  <p>Orangtua Al Fattieh berhasil menggalang Rp 61 juta dari 222 #OrangBaik untuk biaya pengobatan bayi Al Fattieh.</p>    
+                </div>
+
+                <div class="swiper-slide __item">
+                  <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
+                  <p>Orangtua Al Fattieh berhasil menggalang Rp 61 juta dari 222 #OrangBaik untuk biaya pengobatan bayi Al Fattieh.</p>    
+                </div>
+
+                <div class="swiper-slide __item">
+                  <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
+                  <p>Orangtua Al Fattieh berhasil menggalang Rp 61 juta dari 222 #OrangBaik untuk biaya pengobatan bayi Al Fattieh.</p>    
+                </div>
               </div>
-              <div class="col-6 __item">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets-kitabisa-cc/images/banners/banner__slider-desktop-1.jpg" class="img-responsive" alt="" />
-                <p>Orangtua Al Fattieh berhasil menggalang Rp 61 juta dari 222 #OrangBaik untuk biaya pengobatan bayi Al Fattieh.</p>
-                </div>  
-            </div>  
+
+              <div class="swiper-pagination"></div>
+            </div>
           </div>  
         </div>
       </div>
@@ -107,7 +126,7 @@
 
             <div class="row justify-content-center">
               <div class="col-md-4" style="padding-top: 10px; padding-bottom: 30px;">
-                <a href="javascript:void(0)" class="btn btn-primary btn-lg" style="width:100%;">Lihat Semua</a>
+                <a href="{{ route('event.browse', ['category_id' => 'all']) }}" class="btn btn-primary btn-lg" style="width:100%;">Lihat Semua</a>
               </div>
             </div>
           </div>
@@ -128,3 +147,25 @@
       </div>
     </section>
   @endsection
+
+  @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        var swiper = new Swiper('#slide-top', {
+          slidesPerView: 2,
+          spaceBetween: 30,
+          slidesPerGroup: 2,
+          loop: true,
+          loopFillGroupWithBlank: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          autoplay: {
+            delay: 5000
+          }
+        });
+      });
+    </script>
+  @endpush

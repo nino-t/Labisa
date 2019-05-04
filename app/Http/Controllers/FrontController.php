@@ -10,7 +10,11 @@ class FrontController extends Controller
 	public function index () {
 		$last_event = Event::orderBy('created_at', 'DESC')->limit(9)->get();
 		$sub_title = 'Indonesia Fundraising Platform';
-
 		return view('pages.home.index', compact('sub_title', 'last_event'));
-	}
+  }
+  
+  public function eventList () {
+		$sub_title = 'Indonesia Fundraising Platform';
+		return view('pages.event.browse.index', compact('sub_title'));
+  }
 }

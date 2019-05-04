@@ -13,7 +13,13 @@
 </head>
 <body>
 	<div id="app">
-		@include('layouts.master._navbar')
+    @php
+      $_navbar_theme = '';
+      if (isset($navbar_theme)) {
+        $_navbar_theme = $navbar_theme;
+      }
+    @endphp
+		@include('layouts.master._navbar', ['theme' => $_navbar_theme])
 		<div class="content">
 			@yield('content')
 		</div>

@@ -31,10 +31,3 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app'
 });
-
-
-$('#navbar-spy').affix({
-  offset: {
-    top: $('#first-banner').offset().top
-  }
-});
