@@ -10,4 +10,10 @@ class FrontController extends Controller
 		$sub_title = 'Indonesia Fundraising Platform';
 		return view('pages.home.index', compact('sub_title'));
 	}
+
+
+	public function detail () {
+		$sub_title = 'Indonesia Fundraising Platform';
+		return view('pages.detail.index', compact('sub_title'));
+	}
 }
