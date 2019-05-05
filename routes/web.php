@@ -21,6 +21,7 @@ Route::get('/event/{event_slug}/donation', 'FrontController@donation')->name('do
 
 Auth::routes();
 Route::resource('/event', 'EventController');
+Route::resource('/account', 'AccountController');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
