@@ -53,7 +53,7 @@
             <div class="swiper-container" id="slide-top">
               <div class="swiper-wrapper" style="margin-bottom: 50px;"> 
                 @foreach ($top_events as $event)
-                  <div class="swiper-slide __item">
+                  <a href="{{ route('event.view', $event->slug) }}" class="swiper-slide __item">
                     @if (empty($event->thumbnail_url))
                       <img src="{{ asset('img/not-found.png') }}" class="img-responsive" alt="img-event" />
                     @else
@@ -70,7 +70,7 @@
                     @endif
 
                     <p>{{ Str::limit($event->message, 80, '...') }}</p>
-                  </div>                      
+                  </a>                      
                 @endforeach
               </div>
 
@@ -99,20 +99,22 @@
 
                 <div class="col-4 __item mb-4">
                   <div class="card">
-                    @if (empty($event->thumbnail_url))
-                      <img src="{{ asset('img/not-found.png') }}" class="img-responsive" alt="img-event" />
-                    @else
-                      @php
-                        $_path_filename = '';
-                        if (empty(strpos($event->thumbnail_url, 'http'))) {
-                          $_path_filename = url('/storage') .'/'. $event->thumbnail_url;
-                        } else {
-                          $_path_filename = $event->thumbnail_url;
-                        }
-                      @endphp
+                    <a href="{{ route('event.view', $event->slug) }}">
+                      @if (empty($event->thumbnail_url))
+                        <img src="{{ asset('img/not-found.png') }}" class="img-responsive" alt="img-event" />
+                      @else
+                        @php
+                          $_path_filename = '';
+                          if (empty(strpos($event->thumbnail_url, 'http'))) {
+                            $_path_filename = url('/storage') .'/'. $event->thumbnail_url;
+                          } else {
+                            $_path_filename = $event->thumbnail_url;
+                          }
+                        @endphp
 
-                      <img src="{{ $_path_filename }}" class="img-responsive" alt="img-event" />
-                    @endif
+                        <img src="{{ $_path_filename }}" class="img-responsive" alt="img-event" />
+                      @endif
+                    </a>
 
                     <div class="card-body">
                       <a href="{{ route('event.view', $event->slug) }}">

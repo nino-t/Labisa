@@ -35,7 +35,10 @@ class FrontController extends Controller
   }
 
   public function eventView (Request $request) {
+    $sub_title = 'Indonesia Fundraising Platform';
     $event = Event::where('slug', $request->event_slug)->first();
+
+    return view('pages.event.view.index', compact('sub_title', 'event'));
   }
 
   public function donation_store () {

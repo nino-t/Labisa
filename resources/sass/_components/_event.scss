@@ -1,0 +1,66 @@
+.event-detail {
+  &.__heading {
+    > .__title__ {
+      margin-bottom: 1em;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    > .__price__ {
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .btn-danger {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    > .__message__ {
+      margin: 10px 0px;
+      font-size: 1.4em;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    > .__price_info__ {
+      margin-bottom: 10px;
+    }
+
+    > .__progress__ {
+      margin: 10px 0px;
+
+      > .progress {
+        height: 3px;
+      }
+    }
+
+    > .__money__ {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    > .__start_info__ {
+      margin-top: 80px;
+
+      > p {
+        border-bottom: 1px solid #bdc3c7;
+        padding-bottom: 15px;
+      }
+
+      > .__user__ {
+        .__title__ {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &.__body {
+    padding: 30px 0px;
+
+    > .__description__ {
+    }
+  }
+}
