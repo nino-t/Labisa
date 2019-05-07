@@ -1,3 +1,4 @@
+<input type="hidden" name="event_id" value="{{ $event->id }}" />
 <div class="form-group">
   <label for="amount">Amount</label>
   {!! Form::text('amount', null, 
@@ -12,8 +13,7 @@
   <label for="donatur_name">Nama Anda</label>
   {!! Form::text('donatur_name', null, 
     [
-      'class' => 'form-control',
-      'placeholder' => '0'
+      'class' => 'form-control'
     ]) 
   !!}
 </div>
@@ -22,8 +22,7 @@
   <label for="donatur_contact">Kontak</label>
   {!! Form::text('donatur_contact', null, 
     [
-      'class' => 'form-control',
-      'placeholder' => '0'
+      'class' => 'form-control'
     ]) 
   !!}
 </div>
@@ -32,8 +31,7 @@
   <label for="donatur_message">Pesan</label>
   {!! Form::textarea('donatur_message', null, 
     [
-      'class' => 'form-control',
-      'placeholder' => '0'
+      'class' => 'form-control'
     ]) 
   !!}
 </div>

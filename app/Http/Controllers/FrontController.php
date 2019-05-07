@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Event;
+use App\LogDonation;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreDonationRequest;
 
@@ -51,14 +53,13 @@ class FrontController extends Controller
   }
 
   public function eventDonationStore (StoreDonationRequest $request) {
-    $event = Event::where('slug', $request->event_slug)->first()->id;
+    $event = Event::find($request->event_id);
 
-    $data = $request->all();
-    $data['user_id'] = Auth::user()->id;
+    $data = $request->all(); 
     if (isset($event->id)) {
-      $data['event_id'] = $event;
-      $event = Event::create($data);  
-      return redirect()->route('event.index')->with('success', 'Donate is success');
+      $data['event_id'] = $event->id;
+      $query = LogDonation::create($data);
+      return redirect()->route('event.view',['event_slug' => $event->slug])->with('success', 'Donate is success'); 
     }
   }
 }
