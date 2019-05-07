@@ -61,6 +61,27 @@
     padding: 30px 0px;
 
     > .__description__ {
+      > .__button-update {
+        display: flex;
+        background: #ebf6ff;
+        justify-content: center;
+        padding: 20px 0;
+        border-radius: 4px;
+        margin-bottom: 2.5em;
+
+        > p {
+          position: relative;
+          top: 8px;
+          padding-right: 20px;
+        }
+
+        > a {
+          color: #fff;
+          font-size: 14px;
+          font-weight: 600px;
+          min-width: 154px;
+        }
+      }
     }
 
     > .__feedback___ {

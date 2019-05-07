@@ -89,10 +89,10 @@
         <div class="container">
           <ul>
             <li class="active">
-              <a href="javascript:void(0)">Detail</a>
+              <a href="javascript:void(0)" id="button_detail">Detail</a>
             </li>
             <li>
-              <a href="javascript:void(0)">Update</a>
+              <a href="javascript:void(0)" id="button_update">Update</a>
             </li>
           </ul>      
         </div>
@@ -103,6 +103,11 @@
           <div class="col-8">
             <div class="event-detail __body" id="event-detail">
               <div class="__description__">
+                <div class="__button-update">
+                  <p>Baca update terbaru dari penggalangan dana ini!</p>
+                  <a href="javascript:void(0)" class="btn btn-primary btn-lg" id="lihat_update">Lihat Update</a>
+                </div>
+
                 {!! $event->description !!}
               </div>
             </div>
@@ -180,3 +185,40 @@
       </div>
     </div>
   @endsection
+
+  @push('scripts')
+    <script>
+      $(document).on('click', '#button_detail', function(e) {
+        e.preventDefault();
+        var self = $(this);
+        var parent = self.parent();
+        parent.addClass('active');
+        $('#button_update').parent().removeClass('active');
+
+        $('#event-update').addClass('d-none');
+        $('#event-detail').removeClass('d-none');   
+      });
+
+      $(document).on('click', '#button_update', function(e) {
+        e.preventDefault();
+        var self = $(this);
+        var parent = self.parent();
+        parent.addClass('active');
+        $('#button_detail').parent().removeClass('active');
+
+        $('#event-update').removeClass('d-none');
+        $('#event-detail').addClass('d-none');        
+      });
+
+      $(document).on('click', '#lihat_update', function(e) {
+        e.preventDefault();
+        var self = $(this);
+        var parent = self.parent();
+        $('#button_update').parent().addClass('active');
+        $('#button_detail').parent().removeClass('active');
+
+        $('#event-update').removeClass('d-none');
+        $('#event-detail').addClass('d-none');        
+      });
+    </script>
+  @endpush
