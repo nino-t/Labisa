@@ -41,7 +41,7 @@ section {
         i {
           font-size: 30px;
           position: absolute;
-          left: 13%;
+          left: 12%;
         }
       }
     }
@@ -63,7 +63,7 @@ section {
         > .card-body {
           position: relative;
 
-          > h4 {
+          > a > h4, > h4 {
             margin: 0;
             padding: 0;
             font-size: 18px;
@@ -98,6 +98,7 @@ section {
               display: flex;
               flex-direction: row;
               justify-content: space-between;
+              margin-top: 10px;
             }
           }
         }

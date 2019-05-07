@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10680,9 +10680,51 @@ a:hover {
   width: 100%;
 }
 
+.img-circle {
+  border-radius: 50%;
+}
+
 ._navbar {
   padding-top: 16px;
   padding-bottom: 16px;
+}
+
+._navbar.navbar-blue {
+  background: #00aeef;
+  color: #ffffff;
+}
+
+._navbar.navbar-blue .nav-link,
+._navbar.navbar-blue input {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::-moz-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue :-ms-input-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue :-ms-input-placeholder {
+  color: #ffffff;
+}
+
+._navbar.navbar-blue ::-ms-input-placeholder {
+  color: orange;
 }
 
 ._background_silver {
@@ -10747,7 +10789,7 @@ a:hover {
 .bread_cover > ._body > .__action__ .col-6:nth-child(2) i {
   font-size: 30px;
   position: absolute;
-  left: 13%;
+  left: 12%;
 }
 
 .bread_cover > ._footer {
@@ -10828,7 +10870,7 @@ section {
 ._section_follow_bottom .__action__ .col-6:nth-child(2) i {
   font-size: 30px;
   position: absolute;
-  left: 13%;
+  left: 12%;
 }
 
 ._section_follow_bottom .__action__ .btn {
@@ -10847,6 +10889,7 @@ section {
   position: relative;
 }
 
+._section_list_campaign ._section_body .__item .card > .card-body > a > h4,
 ._section_list_campaign ._section_body .__item .card > .card-body > h4 {
   margin: 0;
   padding: 0;
@@ -10881,6 +10924,7 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 footer h4 {
@@ -10971,5 +11015,152 @@ footer .__copyright {
   font-weight: 300 !important;
   color: #333 !important;
   margin: 22px 0px;
+}
+
+.event-detail.__heading > .__title__ {
+  margin-bottom: 1em;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.event-detail.__heading > .__price__ {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.event-detail.__heading .btn-danger {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.event-detail.__heading > .__message__ {
+  margin: 10px 0px;
+  font-size: 1.4em;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.event-detail.__heading > .__price_info__ {
+  margin-bottom: 10px;
+}
+
+.event-detail.__heading > .__progress__ {
+  margin: 10px 0px;
+}
+
+.event-detail.__heading > .__progress__ > .progress {
+  height: 3px;
+}
+
+.event-detail.__heading > .__money__ {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.event-detail.__heading > .__start_info__ {
+  margin-top: 80px;
+}
+
+.event-detail.__heading > .__start_info__ > p {
+  border-bottom: 1px solid #bdc3c7;
+  padding-bottom: 15px;
+}
+
+.event-detail.__heading > .__start_info__ > .__user__ .__title__ {
+  display: block;
+}
+
+.event-detail.__body {
+  padding: 30px 0px;
+}
+
+.event-detail.__body > .__feedback___ > .watermark {
+  padding: 20px 15px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 12px;
+}
+
+.event-detail.__body > .__feedback___ .text-report {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 30px;
+}
+
+.event-detail.__body .make-event {
+  background: #e7e9eb;
+  padding: 16px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 20px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.event-detail.__body .make-event p {
+  position: relative;
+  top: 10px;
+}
+
+.event-detail.__body .__denatur__ > .__title__ {
+  font-weight: bold;
+  font-size: 23px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e7e9eb;
+  margin-bottom: 10px;
+}
+
+.event-detail.__body .__denatur__ > .__list__ > .__donatur_info__ {
+  padding: 10px 0px;
+}
+
+.event-detail.__body .__denatur__ > .__list__ > .__donatur_info__ .__nominal__,
+.event-detail.__body .__denatur__ > .__list__ > .__donatur_info__ .__user__ {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.event-detail.__body .__denatur__ > .__list__ > .__donatur_info__ .__user__ {
+  font-size: 16px;
+  color: #000000;
+}
+
+._tab_event {
+  border-bottom: 2px solid #e7e9eb;
+  background: #fff;
+}
+
+._tab_event ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+._tab_event ul > li {
+  display: inline-block;
+  padding: 20px 10px;
+}
+
+._tab_event ul > li a {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #4d4d4d;
+}
+
+._tab_event ul > li a:hover {
+  color: #006489;
+}
+
+._tab_event ul > li.active {
+  border-bottom: 3px solid #00aeef;
+}
+
+._tab_event ul > li.active a {
+  color: #006489;
 }
 

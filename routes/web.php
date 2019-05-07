@@ -13,11 +13,16 @@
 
 Route::get('/', 'FrontController@index')->name('beranda');
 Route::get('/home', 'FrontController@index')->name('home');
-Route::get('/detail', 'FrontController@detail')->name('detail');
+Route::get('/explore/{category_id}', 'FrontController@eventList')->name('event.browse');
+
+Route::group(['prefix' => '/view-event'], function () {
+  Route::get('/{event_slug}', 'FrontController@eventView')->name('event.view');
+  Route::get('/{event_slug}/donasi', 'FrontController@eventDonation')->name('event.donation');
+  Route::post('/{event_slug}/donasi', 'FrontController@eventDonationStore')->name('event.donation.store');  
+});
 
 Auth::routes();
-Route::resource('/galangan', 'EventController');
-
+Route::resource('/event', 'EventController');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

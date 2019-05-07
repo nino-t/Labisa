@@ -4,4 +4,25 @@
 
   .navbar-brand {
   }
+
+  &.navbar-blue {
+    background: #00aeef;
+    color: #ffffff;
+
+    .nav-link, input {
+      color: #ffffff;
+    }
+
+    ::placeholder {
+      color: #ffffff;
+    } 
+      
+    :-ms-input-placeholder {
+      color: #ffffff;
+    } 
+      
+    ::-ms-input-placeholder {
+        color: orange; 
+    } 
+  }
 }

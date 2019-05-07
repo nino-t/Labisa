@@ -17,29 +17,9 @@
               </ul>
             </div><br />
           @endif
-            <form method="post" action="{{ route('galangan.store') }}">
-              @component('_input')
-                @slot('label')
-                  Name
-                @endslot
-              @endcomponent
-
-              <div class="form-group">
-                @csrf
-                <label for="name">Book Name:</label>
-                <input type="text" class="form-control" name="book_name"/>
-              </div>
-  
-            <div class="form-group">
-              <label for="price">Book ISBN Number :</label>
-              <input type="text" class="form-control" name="isbn_no"/>
-            </div>
-            <div class="form-group">
-              <label for="quantity">Book Price :</label>
-              <input type="text" class="form-control" name="book_price"/>
-            </div>
-            <button type="submit" class="btn btn-primary">Create Book</button>
-          </form>
+          {!! Form::open(['url' => route('event.store'), 'files' => true]) !!}
+		    	  @include($INC_DIR.'_form')
+		      {!! Form::close() !!}
         </div>
       </div>
     </div>
