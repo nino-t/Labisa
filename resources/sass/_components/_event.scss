@@ -62,5 +62,99 @@
 
     > .__description__ {
     }
+
+    > .__feedback___ {
+      > .watermark {
+        padding: 20px 15px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 12px;
+      }
+
+      .text-report {
+        font-weight: bold;
+        text-decoration: underline;
+        margin-top: 30px;
+      }
+    }
+
+    .make-event {
+      background: #e7e9eb;
+      padding: 16px 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      margin: 20px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+
+      p {
+        position: relative;
+        top: 10px;
+      }
+    }
+
+    .__denatur__ {
+      > .__title__ {
+        font-weight: bold;
+        font-size: 23px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e7e9eb;
+        margin-bottom: 10px;
+      }
+
+      > .__list__ {
+        > .__donatur_info__ {
+          padding: 10px 0px;
+
+          .__nominal__, .__user__ {
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+          }
+    
+          .__user__ {
+            font-size: 16px;
+            color: #000000;
+          }  
+        }
+      }
+    }
+  }
+}
+
+._tab_event {
+  border-bottom: 2px solid #e7e9eb;
+  background: #fff;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li {
+      display: inline-block;
+      padding: 20px 10px;
+
+      a {
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        color: #4d4d4d;
+
+        &:hover {
+          color: #006489;
+        }
+      }
+
+      &.active {
+        border-bottom: 3px solid #00aeef;
+
+        a {
+          color: #006489;
+        }
+      }
+    }
   }
 }

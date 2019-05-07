@@ -60,13 +60,14 @@
                   <p><b>{{ $difference }}</b> hari lagi</p>
                 </div>
               </div>
-              <a href="#" class="btn btn-danger btn-lg" style="width: 100%;">DONASI SEKARANG</a>
+              <a href="{{ route('event.donation', ['event.donation' => $event->slug]) }}" class="btn btn-danger btn-lg" style="width: 100%;">DONASI SEKARANG</a>
+
               <div class="__start_info__">
                 <p>Penggalangan dana dimulai <b>{{ $event->created_at->format('d M Y') }}</b> oleh:</p>
                 <div class="__user__">
                   <div class="row">
                     <div class="col-3">
-                    <img src="{{ asset('/img/no-user.png') }}" class="img-responsive img-circle" alt="logo-user" />
+                      <img src="{{ asset('/img/no-user.png') }}" class="img-responsive img-circle" alt="logo-user" />
                     </div>
                     <div class="col-9">
                       <a href="" class="__title__">{{ $event->userId->name }}</a>
@@ -84,13 +85,30 @@
     </section>
  
     <div class="_background_white">
+      <div class="_tab_event">
+        <div class="container">
+          <ul>
+            <li class="active">
+              <a href="javascript:void(0)">Detail</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Update</a>
+            </li>
+          </ul>      
+        </div>
+      </div>
+
       <div class="container">
         <div class="row">
           <div class="col-8">
-            <div class="event-detail __body">
+            <div class="event-detail __body" id="event-detail">
               <div class="__description__">
                 {!! $event->description !!}
               </div>
+            </div>
+
+            <div class="event-detail __body d-none" id="event-update">
+              <div class="">Not Found</div>
             </div>
           </div>
           <div class="col-4">
@@ -105,11 +123,11 @@
                 <div class="__list__">
                   @forelse ($donaturs as $donatur)
                     <div class="row __donatur_info__">
-                      <div class="col-4 __image__">
-                          <img src="https://kitabisa-userupload-01.s3-ap-southeast-1.amazonaws.com/_production/user/1337504/23_1337504_1552222617_9929_a.jpg" class="img-responsive" alt="logo-user" />
+                      <div class="col-3 __image__">
+                        <img src="{{ asset('/img/no-user.png') }}" class="img-responsive img-circle" alt="logo-user" />
                       </div>
-                      <div class="col-8 __donatur_description__">
-                        <h4 class="__nominal__">Rp {{ $donatur->amount }}</h4>
+                      <div class="col-9 __donatur_description__">
+                        <h4 class="__nominal__">Rp {{ number_format($donatur->amount, 0, ',', '.') }}</h4>
                         <h4 class="__user__">{{ $donatur->donatur_name }}</h4>
                         <small>{{ $donatur->created_at->format('m/d/Y H:m') }}</small>
                         <p>{{ $donatur->donatur_message }}</p>
@@ -121,6 +139,42 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <div class="event-detail __body">
+              <div class="__feedback___">
+                <div class="watermark">
+                  <p><b>Disclaimer</b> : Informasi dan opini yang tertulis di halaman penggalangan ini adalah milik penggalang dana dan tidak mewakili Kitabisa.</p>
+                </div>
+
+                <div class="text-center">
+                  <p class="text-report">Penggalangan dana ini mencurigakan? <a href="">Laporkan</a></p>
+                </div>
+                <a href="{{ route('event.donation', ['event.donation' => $event->slug]) }}" class="btn btn-danger btn-lg" style="width: 100%; padding-top: 10px; padding-bottom: 10px;">DONASI SEKARANG</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+              <div class="event-detail __body">
+                <div class="make-event">
+                  <div class="row">
+                    <div class="col-8">
+                      <p>Mau buat halaman untuk galang dana online seperti ini?</p>
+                    </div>
+                    <div class="col-4">
+                      <a href="" class="btn btn-primary btn-lg" style="width: 100%;">Buat sekarang gratis</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </div>
