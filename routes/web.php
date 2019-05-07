@@ -13,7 +13,7 @@
 
 Route::get('/', 'FrontController@index')->name('beranda');
 Route::get('/home', 'FrontController@index')->name('home');
-Route::get('/explore/{category_id}', 'FrontController@eventList')->name('event.browse');
+Route::get('/explore', 'FrontController@eventList')->name('event.browse');
 
 Route::group(['prefix' => '/view-event'], function () {
   Route::get('/{event_slug}', 'FrontController@eventView')->name('event.view');

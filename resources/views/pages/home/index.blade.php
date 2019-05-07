@@ -157,7 +157,7 @@
             @if (count($last_event) >= $limit_event)
               <div class="row justify-content-center">
                 <div class="col-md-4" style="padding-top: 10px; padding-bottom: 30px;">
-                  <a href="{{ route('event.browse', ['category_id' => 'all']) }}" class="btn btn-primary btn-lg" style="width:100%;">Lihat Semua</a>
+                  <a href="{{ route('event.browse') }}" class="btn btn-primary btn-lg" style="width:100%;">Lihat Semua</a>
                 </div>
               </div>
             @endif

@@ -10,7 +10,7 @@
               <div class="row">
                 <div class="col-3">
                   @if (empty($event->thumbnail_url))
-                    <img src="{{ asset('img/not-found.png') }}" class="img-responsive __image__" alt="img-event" />
+                    <img src="{{ asset('img/not-found.png') }}" class="img-responsive __image__ donasi-event-img" alt="img-event" />
                   @else
                     @php
                       $_path_filename = '';
@@ -21,7 +21,7 @@
                       }
                     @endphp
         
-                    <img src="{{ $_path_filename }}" class="img-responsive __image__" alt="img-event" />
+                    <img src="{{ $_path_filename }}" class="img-responsive __image__ donasi-event-img" alt="img-event" />
                   @endif
                 </div>
                 <div class="col-9">
@@ -33,10 +33,7 @@
           </div>
 
           <div class="card" style="margin-bottom: 50px;">
-            <div class="card-header">
-              Donasi
-            </div>
-            <div class="card-body">
+            <div class="card-body" style="padding: 20px;">
               @if ($errors->any())
                 <div class="alert alert-danger">
                   <ul>
