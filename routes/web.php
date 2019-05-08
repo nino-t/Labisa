@@ -14,10 +14,12 @@
 Route::get('/', 'FrontController@index')->name('beranda');
 Route::get('/home', 'FrontController@index')->name('home');
 Route::get('/explore/{category_id}', 'FrontController@eventList')->name('event.browse');
-Route::get('/view-event/{event_slug}', 'FrontController@eventView')->name('event.view');
 
-Route::post('/event/{event_slug}/donation', 'FrontController@donation')->name('event.donation');
-Route::get('/event/{event_slug}/donation', 'FrontController@donation')->name('donation.store');
+Route::group(['prefix' => '/view-event'], function () {
+  Route::get('/{event_slug}', 'FrontController@eventView')->name('event.view');
+  Route::get('/{event_slug}/donasi', 'FrontController@eventDonation')->name('event.donation');
+  Route::post('/{event_slug}/donasi', 'FrontController@eventDonationStore')->name('event.donation.store');  
+});
 
 Auth::routes();
 Route::resource('/event', 'EventController');

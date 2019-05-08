@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreDonationRequest;
 
 class FrontController extends Controller
 {
@@ -35,20 +36,29 @@ class FrontController extends Controller
   }
 
   public function eventView (Request $request) {
+    $sub_title = 'Indonesia Fundraising Platform';
     $event = Event::where('slug', $request->event_slug)->first();
+
+    return view('pages.event.view.index', compact('sub_title', 'event'));
   }
 
-  public function donation_store () {
-	$data = $request->all();
-	$data['user_id'] = Auth::user()->id;
-	$data['event_id'] = Event::where('slug', $request->event_slug)->first()->id;
-	$event = Event::create($data);
-	return redirect()->route('event.index')->with('success', 'Donate is success');
+  public function eventDonation (Request $request) {
+    $INC_DIR = self::INC_DIR;
+    $sub_title = 'Donasi';
+    $event = Event::where('slug', $request->event_slug)->first();
+ 
+    return view('pages.donation.index', compact('sub_title', 'INC_DIR', 'event'));
   }
 
-  public function donation () {
-	$INC_DIR = self::INC_DIR;
-	$sub_title = 'Donasi';
-	return view('pages.donation.index', compact('sub_title', 'INC_DIR'));
-}
+  public function eventDonationStore (StoreDonationRequest $request) {
+    $event = Event::where('slug', $request->event_slug)->first()->id;
+
+    $data = $request->all();
+    $data['user_id'] = Auth::user()->id;
+    if (isset($event->id)) {
+      $data['event_id'] = $event;
+      $event = Event::create($data);  
+      return redirect()->route('event.index')->with('success', 'Donate is success');
+    }
+  }
 }

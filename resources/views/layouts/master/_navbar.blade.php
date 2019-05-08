@@ -15,7 +15,7 @@
           $keyword = $_GET['q'];
         }
       @endphp
-      <input class="form-control" type="search" name="q" id="q" placeholder="Cari judul, nama, atau isi campaign" aria-label="Search" value="{{ $keyword }}" />
+      <input class="form-control" type="search" name="q" id="q" placeholder="Cari judul campaign" aria-label="Search" value="{{ $keyword }}" />
     </form>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

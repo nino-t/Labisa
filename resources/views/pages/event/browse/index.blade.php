@@ -15,19 +15,21 @@
                 <div class="col">
                   <div class="form-group">
                     <label>Kategori</label>
-                    <select class="form-control">
-                      <option selected>Choose...</option>
-                      <option>...</option>
-                    </select>    
+                    @php
+                      $categories = App\Category::all()->pluck('name', 'id');
+                      $categories[''] = '-- Semua Kategori--';
+                    @endphp
+                    {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label>Kategori Tujuan</label>
-                    <select class="form-control">
-                      <option selected>Choose...</option>
-                      <option>...</option>
-                    </select>    
+                    @php
+                      $categories = App\PurposeCategory::all()->pluck('name', 'id');
+                      $categories[''] = '-- Semua Tujuan Campaign--';
+                    @endphp
+                    {!! Form::select('purpose_category_id', $categories, null, ['class' => 'form-control']) !!}
                   </div>
                 </div>
               </div>
@@ -50,23 +52,27 @@
 
             <div class="col-4 __item mb-4">
               <div class="card">
-                @if (empty($event->thumbnail_url))
-                  <img src="{{ asset('img/not-found.png') }}" class="img-responsive" alt="img-event" />
-                @else
-                  @php
-                    $_path_filename = '';
-                    if (empty(strpos($event->thumbnail_url, 'http'))) {
-                      $_path_filename = url('/storage') .'/'. $event->thumbnail_url;
-                    } else {
-                      $_path_filename = $event->thumbnail_url;
-                    }
-                  @endphp
+                <a href="{{ route('event.view', $event->slug) }}">
+                  @if (empty($event->thumbnail_url))
+                    <img src="{{ asset('img/not-found.png') }}" class="img-responsive" alt="img-event" />
+                  @else
+                    @php
+                      $_path_filename = '';
+                      if (empty(strpos($event->thumbnail_url, 'http'))) {
+                        $_path_filename = url('/storage') .'/'. $event->thumbnail_url;
+                      } else {
+                        $_path_filename = $event->thumbnail_url;
+                      }
+                    @endphp
 
-                  <img src="{{ $_path_filename }}" class="img-responsive" alt="img-event" />
-                @endif
+                    <img src="{{ $_path_filename }}" class="img-responsive" alt="img-event" />
+                  @endif
+                </a>
 
                 <div class="card-body">
-                  <h4>{{ $event->name }}</h4>
+                  <a href="{{ route('event.view', $event->slug) }}">
+                    <h4>{{ $event->name }}</h4> 
+                  </a>
                   <div class="__description__">
                     <div class="__username__">
                       <p>{{ $event->userId->name }}</p>
