@@ -2,12 +2,12 @@
   @section('sub_title', $sub_title)
 
   @section('content')
-    <div class="container" style="margin-top: 30px;">
+    <div class="container donation-page" style="margin-top: 30px;">
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="card" style="margin-bottom: 20px;">
             <div class="card-body">
-              <div class="row">
+              <a href="{{ route('event.view', $event->slug) }}" class="row"> 
                 <div class="col-3">
                   @if (empty($event->thumbnail_url))
                     <img src="{{ asset('img/not-found.png') }}" class="img-responsive __image__ donasi-event-img" alt="img-event" />
@@ -28,12 +28,12 @@
                   <p style="margin: 0; padding: 0;">Anda akan berdonasi untuk : </p>
                   <b>{{ $event->name }}</b>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
-          <div class="card" style="margin-bottom: 50px;">
-            <div class="card-body" style="padding: 20px;">
+          <div class="card _card_donation" style="margin-bottom: 50px;">
+            <div class="card-body">
               @if ($errors->any())
                 <div class="alert alert-danger">
                   <ul>

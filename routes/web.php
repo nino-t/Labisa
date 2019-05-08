@@ -22,7 +22,11 @@ Route::group(['prefix' => '/view-event'], function () {
 });
 
 Auth::routes();
-Route::resource('/event', 'EventController');
+Route::group(['prefix' => '/account'], function () {
+  Route::get('/dashboard', 'AccountController@dashboard')->name('account.dashboard');
+  Route::resource('/event', 'EventController');
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
