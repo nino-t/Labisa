@@ -19,6 +19,8 @@
           <div class="card">
             <div class="card-body">
               <b>Campaign yang telah dibuat:</b>
+              <a href="{{ route('event.create') }}" class="btn btn-primary btn-sm">Buat Campaign</a>
+
               <table class="table table-hovered table-bordered mt-3">
                 <thead>
                   <tr>
@@ -32,12 +34,12 @@
                   @forelse ($events as $event)
                     <tr>
                       <td scope="row">{{ $event->id }}</td>
-                    <td>{{ $event->name }}</td>
+                      <td>{{ $event->name }}</td>
                       <td>{{ $event->created_at->format('d M Y H:m') }}</td>
-                      <td>
-                        <a href="" class="btn btn-default btn-sm">Lihat</a>
-                        <a href="" class="btn btn-success btn-sm">Ubah</a>
-                        <a href="" class="btn btn-danger btn-sm">Hapus</a>
+                      <td> 
+                        <a href="{{ route('event.view', $event->slug) }}" class="btn btn-default btn-sm">Lihat</a>
+                        <a href="{{ route('event.edit', $event->id) }}" class="btn btn-success btn-sm">Ubah</a>
+                        <a href="{{ route('event.destroy', $event->id) }}" class="btn btn-danger btn-sm">Hapus</a>
                       </td>
                     </tr>                      
                   @empty
