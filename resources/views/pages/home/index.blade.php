@@ -59,7 +59,7 @@
                     @else
                       @php
                         $_path_filename = '';
-                        if (empty(strpos($event->thumbnail_url, 'http'))) {
+                        if (strpos($event->thumbnail_url, 'http') === false) {
                           $_path_filename = url('/storage') .'/'. $event->thumbnail_url;
                         } else {
                           $_path_filename = $event->thumbnail_url;
@@ -105,7 +105,7 @@
                       @else
                         @php
                           $_path_filename = '';
-                          if (empty(strpos($event->thumbnail_url, 'http'))) {
+                          if (strpos($event->thumbnail_url, 'http') === false) {
                             $_path_filename = url('/storage') .'/'. $event->thumbnail_url;
                           } else {
                             $_path_filename = $event->thumbnail_url;
