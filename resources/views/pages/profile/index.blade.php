@@ -13,6 +13,7 @@
 							<p class="card-text">Name : {{ Auth::user()->name }}</p>
 							<p class="card-text">Email : {{ Auth::user()->email }}</p>
 							<a href="#" class="btn btn-primary">Edit Profile</a>
+							<a href="#" class="btn btn-primary">Change Password</a>
 						</div>
 					</div>
 				</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Hash;
 use App\Accounts;
 use App\Event;
 use App\User;
@@ -26,7 +27,7 @@ class AccountController extends Controller
     {
       $INC_DIR = self::INC_DIR;
 			$sub_title = 'Profile';
-      return view('pages.account.index', compact('sub_title', 'INC_DIR'));			
+      return view('pages.profile.index', compact('sub_title', 'INC_DIR'));			
     }
 
     /**
@@ -60,14 +61,45 @@ class AccountController extends Controller
       $INC_DIR = self::INC_DIR;
       $sub_title = 'Profile Detail';
       $model = Auth::user();
-      return view('pages.account.edit.index', compact('sub_title', 'INC_DIR', 'model'));
+      return view('pages.profile.edit.index', compact('sub_title', 'INC_DIR', 'model'));
     }
 
     public function update(Request $request, User $user)
     {
       $data = $request->all();
       Auth::user()->update($data);
-			return redirect()->route('account.index')->with('success', 'Account is successfully saved');
+			return redirect()->route('profile.index')->with('success', 'Account is successfully saved');
+    }
+
+    public function change_password(Request $request)
+    {
+      $INC_DIR = self::INC_DIR;
+      $sub_title = 'Change Password';
+      $model = Auth::user();
+      if (Hash::check($request->old_password, Auth::user()->password)) {
+        $auth = Auth::user();
+        $auth->password = Hash::make($request->password);
+  
+        if ($auth->save()) {
+          return view('pages.profile.index', compact('sub_title', 'INC_DIR', 'model'));
+        }
+      }else{
+        return view('pages.profile.change_password.index', compact('sub_title', 'INC_DIR', 'model'));
+      }
+    }
+
+    public function update_password(Request $request, User $user)
+    {
+      if (Hash::check($request->old_password, Auth::user()->password)) {
+        $auth = Auth::user();
+        $auth->password = Hash::make($request->new_password);
+
+        if ($auth->save()) {
+          return redirect()->route('account.dashboard');
+        }
+      }
+
+      return "Gagal";
     }
 
     public function destroy(Event $event)

@@ -2,10 +2,10 @@
   @section('sub_title', $sub_title)
 
   @section('content')
-    <div class="container-fluid">
+    <div class="container">
       <div class="card uper">
         <div class="card-header">
-          Edit Profile
+          Change Password
         </div>
         <div class="card-body">
           @if ($errors->any())
@@ -17,8 +17,8 @@
               </ul>
             </div><br />
           @endif
-          {!! Form::model($model, ['url' => route('account.update', $model->id), 'method' => 'PUT', 'files' => true]) !!} 
-            @include($INC_DIR.'_form_profile')
+          {!! Form::model($model, ['url' => route('account.change.password'), 'method' => 'PUT', 'files' => true]) !!} 
+            @include($INC_DIR.'_form_change_password')
 					{!! Form::close() !!}
         </div>
       </div>
