@@ -25,6 +25,10 @@ Auth::routes();
 Route::group(['prefix' => '/account'], function () {
   Route::get('/dashboard', 'AccountController@dashboard')->name('account.dashboard');
   Route::resource('/event', 'EventController');
+  Route::resource('/profile', 'AccountController');
+  Route::get('/change-password', 'AccountController@change_password')->name('account.change.password');
+  Route::put('/change-password', 'AccountController@update_password')->name('account.change.password');
+
 });
 
 Route::group(['prefix' => 'admin'], function () {
