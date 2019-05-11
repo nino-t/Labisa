@@ -13,7 +13,7 @@
 
 Route::get('/', 'FrontController@index')->name('beranda');
 Route::get('/home', 'FrontController@index')->name('home');
-Route::get('/explore/{category_id}', 'FrontController@eventList')->name('event.browse');
+Route::get('/explore', 'FrontController@eventList')->name('event.browse');
 
 Route::group(['prefix' => '/view-event'], function () {
   Route::get('/{event_slug}', 'FrontController@eventView')->name('event.view');
@@ -22,8 +22,12 @@ Route::group(['prefix' => '/view-event'], function () {
 });
 
 Auth::routes();
-Route::resource('/event', 'EventController');
 Route::resource('/account', 'AccountController');
+Route::group(['prefix' => '/account'], function () {
+  Route::get('/dashboard', 'AccountController@dashboard')->name('account.dashboard');
+  Route::resource('/event', 'EventController');
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

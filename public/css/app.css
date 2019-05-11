@@ -10684,6 +10684,11 @@ a:hover {
   border-radius: 50%;
 }
 
+.alert-danger ul {
+  margin: 0px;
+  padding: 10px;
+}
+
 ._navbar {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -11184,5 +11189,39 @@ footer .__copyright {
 
 ._tab_event ul > li.active a {
   color: #006489;
+}
+
+.donasi-event-img {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.donation-page ._card_donation > .card-body {
+  padding: 50px;
+}
+
+.donation-page ._input_amount .input-group-prepend,
+.donation-page ._input_amount .input-group-text {
+  border-right: none;
+  border-radius: 3px 0px 0px 3px;
+}
+
+.donation-page ._input_amount .form-control,
+.donation-page ._input_amount .input-group-prepend,
+.donation-page ._input_amount .input-group-text {
+  background: #f2f3f4;
+  border-color: #f2f3f4;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.donation-page ._input_amount .form-control {
+  text-align: right;
+}
+
+.donation-page .alert-primary {
+  border: none;
+  padding: 10px 0px;
+  font-size: 13px;
 }
 

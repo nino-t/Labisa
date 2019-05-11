@@ -57,7 +57,7 @@ class EventController extends Controller
 
 			$data['thumbnail_url'] = url('/').'/'.str_replace("public", "storage", $path);
 			$event = Event::create($data);
-			return redirect()->route('event.index')->with('success', 'Event is successfully saved');
+			return redirect()->route('account.dashboard')->with('success', 'Event is successfully saved');
     }
 
     /**
@@ -102,7 +102,7 @@ class EventController extends Controller
 
 			$data['thumbnail_url'] = url('/').'/'.str_replace("public", "storage", $path);
 			$event->update($data);
-			return redirect()->route('event.index')->with('success', 'Event is successfully saved');
+			return redirect()->route('account.dashboard')->with('success', 'Event is successfully saved');
     }
 
     /**

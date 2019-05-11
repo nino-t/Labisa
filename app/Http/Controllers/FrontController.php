@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Event;
+use App\LogDonation;
 use Illuminate\Http\Request;
+use App\Components\AlertClass;
 use App\Http\Requests\StoreDonationRequest;
 
 class FrontController extends Controller
@@ -35,30 +38,46 @@ class FrontController extends Controller
 		return view('pages.event.browse.index', compact('sub_title', 'events', 'total_event', 'category_event'));
   }
 
-  public function eventView (Request $request) {
-    $sub_title = 'Indonesia Fundraising Platform';
+  public function eventView (Request $request) { 
     $event = Event::where('slug', $request->event_slug)->first();
 
-    return view('pages.event.view.index', compact('sub_title', 'event'));
+    if (isset($event->id)) {
+      $sub_title = $event->name;
+      return view('pages.event.view.index', compact('sub_title', 'event'));  
+    }
+
+    return abort(404);
   }
 
   public function eventDonation (Request $request) {
     $INC_DIR = self::INC_DIR;
-    $sub_title = 'Donasi';
+    $sub_title = 'Donasikan bantuan anda';
     $event = Event::where('slug', $request->event_slug)->first();
- 
-    return view('pages.donation.index', compact('sub_title', 'INC_DIR', 'event'));
+
+    if (isset($event->id)) {
+      return view('pages.donation.index', compact('sub_title', 'INC_DIR', 'event'));
+    }
+
+    return abort(404);
   }
 
   public function eventDonationStore (StoreDonationRequest $request) {
-    $event = Event::where('slug', $request->event_slug)->first()->id;
+    $event = Event::find($request->event_id);
+ 
+    $alertClass = new AlertClass;
+    $alertClass->makeAlert('danger', 'Terjadi kesalahan, mohon coba kembali!');
 
-    $data = $request->all();
-    $data['user_id'] = Auth::user()->id;
+    $data = $request->all(); 
     if (isset($event->id)) {
-      $data['event_id'] = $event;
-      $event = Event::create($data);  
-      return redirect()->route('event.index')->with('success', 'Donate is success');
+      $data['event_id'] = $event->id;
+      $query = LogDonation::create($data);
+
+      if ($query) {
+        $alertClass->makeAlert('success', 'Donasi berhasil ditambahkan atas nama ' . $request->donatur_name);
+        return redirect()->route('event.view',['event_slug' => $event->slug])->with('success', 'Donate is success');   
+      }
     }
+
+    return redirect()->back();
   }
 }

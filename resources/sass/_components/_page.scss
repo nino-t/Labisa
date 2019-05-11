@@ -1,0 +1,34 @@
+.donation-page {
+  ._card_donation {
+    > .card-body {
+      padding: 50px;
+    }
+  }
+
+  ._input_amount {
+    .input-group-prepend,
+    .input-group-text {
+      border-right: none;
+      border-radius: 3px 0px 0px 3px;
+    }
+
+    .form-control,
+    .input-group-prepend,
+    .input-group-text {
+      background: #f2f3f4;
+      border-color: #f2f3f4;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .form-control {
+      text-align: right;
+    }
+  }
+
+  .alert-primary {
+    border: none;
+    padding: 10px 0px;
+    font-size: 13px;
+  }
+}
